@@ -1,6 +1,6 @@
 # origami-build-tools [![Build Status](https://circleci.com/gh/Financial-Times/origami-build-tools/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/origami-build-tools/tree/master)
 
-Standardised build tools for Origami modules and products developed based on these modules.
+Standardised build tools for Origami modules and products developed based on these modules (with CSS only build option).
 
 If you have any issues with OBT, please check out [troubleshooting guide](https://github.com/Financial-Times/origami-build-tools/blob/master/TROUBLESHOOT.md) before raising an issue.
 
@@ -18,7 +18,10 @@ If you have any issues with OBT, please check out [troubleshooting guide](https:
 2. Install the build tools globally:
 
 		npm install -g cnk-digital-solutions/origami-build-tools
-
+		
+	or if using Docker:
+	
+		docker-compose run --rm origami npm install -g cnk-digital-solutions/origami-build-tools
 ## Usage
 
 	Usage
@@ -56,7 +59,13 @@ If you have any issues with OBT, please check out [troubleshooting guide](https:
 
 Build CSS and JavaScript bundles in the `build` directory:
 
+#### Local:
+
 	origami-build-tools build
+	
+#### Docker: 
+	
+	docker-compose run --rm origami origami-build-tools build
 
 ### Developing modules locally
 
@@ -88,6 +97,33 @@ Set the name of the folder to store the built CSS and JS with the `--build-folde
 Build the files for production environments with the `--production` option. _(default: off)_
 
 If building a library use the `--standalone` option to specify the name you want the library to be accessed with. _(default: off)_
+
+### `buildsass` or `s`
+
+Build CSS (typically, from `base.css`).
+
+It comes with support for things like:
+
+* [autoprefixer](https://github.com/postcss/autoprefixer) so you don't have to worry about writing browser prefixes in your Sass
+
+Set the main Sass file with the `--sass` option. _(default: ./src/main.scss)_
+Set the name of the built CSS file with the `--build-css` option. _(default: main.css)_
+Set the name of the folder to store the built CSS with the `--build-folder` option. _(default: ./build/)_
+Build the files for production environments with the `--production` option. _(default: off)_
+
+If building a library use the `--standalone` option to specify the name you want the library to be accessed with. _(default: off)_
+
+CLI examples:
+
+#### Local:
+	
+	obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static
+	
+#### Docker:	
+
+	docker-compose run --rm origami obt buildsass --sass=./private/sass/base.scss 
+	--buildCss=bundle.css --buildFolder=static
+
 
 ### `demo` or `d`
 
