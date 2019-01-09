@@ -17,7 +17,7 @@ If you have any issues with OBT, please check out [troubleshooting guide](https:
 
 2. Install the build tools globally:
 
-		npm install -g origami-build-tools
+		npm install -g cnk-digital-solutions/origami-build-tools
 
 ## Usage
 
@@ -25,12 +25,13 @@ If you have any issues with OBT, please check out [troubleshooting guide](https:
 		$ obt <command> [<options>]
 
 	Commands
-		build, b    Build CSS and JS in current directory
-		demo, d     Build demos into the demos directory
-		init        Initialise a new component with a boilerplate folder structure
-		install, i  Install npm and bower dependencies required to build modules
-		test, t     Run Origami specification tests and component specific tests
-		verify, v   Check folder and code structure follows Origami specification
+		build, b      Build CSS and JS in current directory
+		buildsass, s  Build CSS only in current directory
+		demo, d       Build demos into the demos directory
+		init          Initialise a new component with a boilerplate folder structure
+		install, i    Install npm and bower dependencies required to build modules
+		test, t       Run Origami specification tests and component specific tests
+		verify, v     Check folder and code structure follows Origami specification
 
 	Options
 		-h, --help                 Print out this message
