@@ -116,14 +116,26 @@ If building a library use the `--standalone` option to specify the name you want
 CLI examples:
 
 #### Local:
-	
+
 	obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static
 	
 #### Docker:	
 
 	docker-compose run --rm origami obt buildsass --sass=./private/sass/base.scss 
 	--buildCss=bundle.css --buildFolder=static
+	
+	
+##### Building locally when origami-build-tools is installed in a Docker container:
 
+Rebuild node-sass:
+
+	npm rebuild node-sass
+	
+	
+Then build:
+
+	obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static	
+	
 
 ### `demo` or `d`
 
