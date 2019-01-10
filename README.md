@@ -117,12 +117,11 @@ CLI examples:
 
 #### Local:
 
-	/app/node_modules/.bin/obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static
+	./node_modules/.bin/obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static/css
 	
 #### Docker:	
 
-	docker-compose run --rm origami /app/node_modules/.bin/obt buildsass --sass=./private/sass/base.scss 
-	--buildCss=bundle.css --buildFolder=static
+	docker-compose run --rm origami /app/node_modules/.bin/obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static/css
 	
 	
 ##### Building locally when origami-build-tools is installed in a Docker container:
@@ -134,7 +133,7 @@ Rebuild node-sass:
 	
 Then build:
 
-	obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static	
+	./node_modules/.bin/obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static	
 	
 
 ### `demo` or `d`
