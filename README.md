@@ -17,11 +17,11 @@ If you have any issues with OBT, please check out [troubleshooting guide](https:
 
 2. Install the build tools globally:
 
-		npm install -g cnk-digital-solutions/origami-build-tools
+		npm install cnk-digital-solutions/origami-build-tools
 		
 	or if using Docker:
 	
-		docker-compose run --rm origami npm install -g cnk-digital-solutions/origami-build-tools
+		docker-compose run --rm origami npm install cnk-digital-solutions/origami-build-tools
 ## Usage
 
 	Usage
@@ -117,11 +117,11 @@ CLI examples:
 
 #### Local:
 
-	obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static
+	/app/node_modules/.bin/obt buildsass --sass=./private/sass/base.scss --buildCss=bundle.css --buildFolder=static
 	
 #### Docker:	
 
-	docker-compose run --rm origami obt buildsass --sass=./private/sass/base.scss 
+	docker-compose run --rm origami /app/node_modules/.bin/obt buildsass --sass=./private/sass/base.scss 
 	--buildCss=bundle.css --buildFolder=static
 	
 	
