@@ -2,7 +2,7 @@ workflows:
   version: 2
   node-multi-build:
     jobs:
-      - node-v6:
+      - node-latest:
           filters:
             tags:
               only: /^v.*/
@@ -15,10 +15,6 @@ workflows:
             tags:
               only: /^v.*/
       - publish:
-          requires:
-            - node-v6
-            - node-v8
-            - node-v10
           filters:
             tags:
               only: /^v.*/
@@ -34,10 +30,10 @@ jobs:
       - checkout
       - run: npm ci || npm i
       - run: make ci
-  node-v6:
+  node-latest:
     <<: *node-base
     docker:
-      - image: circleci/node:6-browsers
+      - image: circleci/node:latest-browsers
   node-v8:
     <<: *node-base
     docker:
@@ -50,11 +46,10 @@ jobs:
   publish:
     <<: *node-base
     docker:
-      - image: circleci/node:6-browsers
+      - image: circleci/node:latest-browsers
     steps:
       - checkout
-      - run: npm ci || npm i
-      - run: make ci
+      - run: npm ci
       - run:
           name: Authenticate with npm
           command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ${HOME}/.npmrc
